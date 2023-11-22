@@ -53,7 +53,9 @@ tree = BinarySearchTree(10)
 L = [20,4,30,4,1,5,6]
 for i in L:
     tree.insert(i)
-print(tree.lchild.rchild.value)
-print(tree.value)
+
+# testing
+assert tree.lchild.rchild.rchild.value == 6
+assert tree.rchild.rchild.value == 30
 
 
