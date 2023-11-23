@@ -48,14 +48,36 @@ class BinarySearchTree:
                 self.rchild = BinarySearchTree(data)
             else:
                 self.rchild.insert(data)
+    
+    def search(self, data):
+        if data == self.value:
+            print('Node found')
+        elif self.lchild and data < self.value:
+            self.lchild.search(data)
+        elif self.rchild and data > self.value:
+            self.rchild.search(data)
+        else:
+            print('Node not found')
+        
 
-tree = BinarySearchTree(10)
-L = [20,4,30,4,1,5,6]
-for i in L:
-    tree.insert(i)
+if __name__ == "__main__":
+    tree = BinarySearchTree(10)
+    L = [20,4,30,4,1,5,6]
+    for i in L:
+        tree.insert(i)
 
-# testing
-assert tree.lchild.rchild.rchild.value == 6
-assert tree.rchild.rchild.value == 30
+    # testing insertion 
+    assert tree.lchild.rchild.rchild.value == 6
+    assert tree.rchild.rchild.value == 30
+    
+    # testing search function
+    for i in L:
+        tree.search(i)
+    print ("--------------------")
+    
+    # Following searches should return node absent [77,80,99]:
+    M = [77,80,99]
+    for m in M:
+        tree.search(m)
 
 
